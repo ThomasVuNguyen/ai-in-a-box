@@ -17,5 +17,8 @@ def ask(query):
         stream=True,
     )
 
+    full_response = ""
     for chunk in stream:
-        print(chunk['message']['content'], end='', flush=True)
+        full_response += chunk['message']['content']
+
+    return full_response
